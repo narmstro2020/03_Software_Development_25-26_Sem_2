@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_Java Generics/01_Introduction to Java Generics/01_Guided Notes/01_Guided Notes.iml" filepath="$PROJECT_DIR$/01_Java Generics/01_Introduction to Java Generics/01_Guided Notes/01_Guided Notes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01_Java Generics/01_Introduction to Java Generics/01_Introduction to Java Generics.iml" filepath="$PROJECT_DIR$/01_Java Generics/01_Introduction to Java Generics/01_Introduction to Java Generics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01_Java Generics/01_Java Generics.iml" filepath="$PROJECT_DIR$/01_Java Generics/01_Java Generics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01_Java Generics/01_Introduction to Java Generics/02_Assignment/02_Assignment.iml" filepath="$PROJECT_DIR$/01_Java Generics/01_Introduction to Java Generics/02_Assignment/02_Assignment.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_Software_Development_25-26_Sem_2.iml" filepath="$PROJECT_DIR$/03_Software_Development_25-26_Sem_2.iml" />
     </modules>
   </component>

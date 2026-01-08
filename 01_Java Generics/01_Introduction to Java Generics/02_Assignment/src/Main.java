@@ -280,19 +280,5 @@ public class Main {
         return sb.toString();
     }
 
-    /*
-    ============================
-    EXIT TICKET (Answer in comments)
-    ============================
 
-    1) Type parameter vs type argument:
-       - Type parameter: ________________________________________
-       - Type argument:  ________________________________________
-
-    2) Why is ObjectBox-style coding risky?
-       __________________________________________________________
-
-    3) One benefit of generics besides convenience:
-       __________________________________________________________
-    */
 }
