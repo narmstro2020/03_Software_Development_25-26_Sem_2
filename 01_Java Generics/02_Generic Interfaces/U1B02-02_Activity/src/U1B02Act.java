@@ -1,6 +1,6 @@
 /*
 SOF_U1B2 - Pair Programming Lab (40 minutes)
-Topic: Java Generics - Generic Interfaces
+Topic: Java Generics - Generic Interfaces (NO collections yet)
 
 Names: ______________________  ______________________  (______________________)
 
@@ -32,7 +32,7 @@ public class U1B02Act {
 
     public static void main(String[] args) {
 
-        System.out.println("\n=== SOF_U1B2 PAIR LAB: GENERIC INTERFACES ===\n");
+        System.out.println("\n=== SOF_U1B2 PAIR LAB: GENERIC INTERFACES (NO COLLECTIONS) ===\n");
 
         // ============================================================
         // PART A (Warm-up): A generic interface with a default method
@@ -61,79 +61,63 @@ public class U1B02Act {
         */
 
         // ============================================================
-        // PART B: A generic interface with 2 type parameters
-        // (Goal: build a KeyValueStore<K, V>)
+        // PART B: Generic interface with 2 type parameters
+        // (Goal: build Transformer<IN, OUT> + a few implementations)
         // ============================================================
 
-        // TODO B1: Create interface KeyValueStore<K, V> with methods:
-        // - void put(K key, V value)
-        // - V get(K key)
-        // - boolean containsKey(K key)
+        // TODO B1: Create interface Transformer<IN, OUT>:
+        // - OUT transform(IN input);
 
-        // TODO B2: Create class SimpleKeyValueStore<K, V> implements KeyValueStore<K, V>
-        // Use TWO ArrayLists internally:
-        // - ArrayList<K> keys
-        // - ArrayList<V> values
-        //
-        // Rules:
-        // - put(key, value): if key exists, replace its value; else add key+value.
-        // - get(key): return matching value OR null if missing
-        // - containsKey(key): true/false
+        // TODO B2: Create class StringLengthTransformer implements Transformer<String, Integer>
+        // - "robot" -> 5
+
+        // TODO B3: Create class AddPrefixTransformer implements Transformer<String, String>
+        // - constructor takes prefix
+        // - transform("x") -> prefix + "x"
+
+        // TODO B4: Create class IntToStringTransformer implements Transformer<Integer, String>
+        // - 42 -> "42"
 
         // --- Tests for Part B ---
-        // TODO B3: Uncomment after finishing B1-B2
+        // TODO B5: Uncomment after finishing B1-B4
         /*
-        KeyValueStore<String, Integer> scores = new SimpleKeyValueStore<>();
-        scores.put("Ada", 100);
-        scores.put("Linus", 95);
-        System.out.println(scores.get("Ada"));    // expect 100
-        System.out.println(scores.get("Nobody")); // expect null
-        System.out.println(scores.containsKey("Linus")); // expect true
+        Transformer<String, Integer> len = new StringLengthTransformer();
+        System.out.println(len.transform("robot")); // expect 5
 
-        scores.put("Ada", 101);
-        System.out.println(scores.get("Ada")); // expect 101
+        Transformer<String, String> vip = new AddPrefixTransformer("VIP-");
+        System.out.println(vip.transform("Ada")); // expect VIP-Ada
+
+        Transformer<Integer, String> i2s = new IntToStringTransformer();
+        System.out.println(i2s.transform(42)); // expect 42
         */
 
         // ============================================================
-        // PART C: Generic interface as a parameter type
-        // (Goal: write utility methods that accept your interfaces)
+        // PART C: Generic interface as a PARAMETER (no collections)
+        // (Goal: write utility methods that accept your generic interfaces)
         // ============================================================
 
-        // TODO C1: Write a static method printAll(values, formatter)
-        // - values is ArrayList<T>
-        // - formatter is Formatter<T>
-        // - prints each value using formatter.print(...)
+        // TODO C1: Write a static method applyOnce(input, transformer)
+        // - returns transformer.transform(input)
         //
         // Signature hint:
-        // static <T> void printAll(ArrayList<T> values, Formatter<T> formatter)
+        // static <IN, OUT> OUT applyOnce(IN input, Transformer<IN, OUT> transformer)
 
-        // TODO C2: Test it with strings and integers
+        // TODO C2: Write a static method applyTwice(input, transformer)
+        // - applies the transformer twice
+        // - This only makes sense when IN and OUT are the same type
+        //
+        // Signature hint:
+        // static <T> T applyTwice(T input, Transformer<T, T> transformer)
 
+        // --- Tests for Part C ---
         // TODO C3: Uncomment after finishing C1-C2
         /*
-        ArrayList<String> words = new ArrayList<>();
-        words.add("alpha");
-        words.add("beta");
-        words.add("gamma");
+        Transformer<String, String> tag = new AddPrefixTransformer("#");
+        System.out.println(applyOnce("hello", tag));     // expect #hello
+        System.out.println(applyTwice("hi", tag));       // expect ##hi
 
-        Formatter<String> wordFmt = new BracketFormatter<>();
-        printAll(words, wordFmt);
-        // expect:
-        // [alpha]
-        // [beta]
-        // [gamma]
-
-        ArrayList<Integer> nums = new ArrayList<>();
-        nums.add(10);
-        nums.add(26);
-        nums.add(255);
-
-        Formatter<Integer> hexFmt = new IntHexFormatter();
-        printAll(nums, hexFmt);
-        // expect:
-        // 0xA
-        // 0x1A
-        // 0xFF
+        Transformer<String, Integer> length = new StringLengthTransformer();
+        System.out.println(applyOnce("Katherine", length)); // expect 9
         */
 
         // ============================================================
@@ -141,85 +125,88 @@ public class U1B02Act {
         // ============================================================
 
         // ============================================================
-        // PART D: A generic interface + class implementation
-        // (Goal: build a Repository<T> and InMemoryRepository<T>)
+        // PART D: Another generic interface + implementations (no collections)
+        // (Goal: build Rule<T> and test multiple values)
         // ============================================================
 
-        // TODO D1: Create interface Repository<T> with methods:
-        // - void add(T item)
-        // - T get(int index)         (return null if out of range)
-        // - int size()
-        // - ArrayList<T> getAll()    (return the actual list OR a copy - your choice, but be consistent)
+        // TODO D1: Create interface Rule<T>:
+        // - boolean test(T value);
+        // - default boolean testNot(T value) { return !test(value); }
 
-        // TODO D2: Create class InMemoryRepository<T> implements Repository<T>
-        // Use: private final ArrayList<T> data = new ArrayList<>();
+        // TODO D2: Create class NonEmptyStringRule implements Rule<String>
+        // - returns true if the string is not null AND not blank
+        //   hint: value != null && !value.isBlank()
 
-        // TODO D3: Test it using String and Integer repositories
+        // TODO D3: Create class EvenIntegerRule implements Rule<Integer>
+        // - returns true if value is not null AND value % 2 == 0
 
-        // TODO D4: Uncomment after finishing D1-D3
+        // TODO D4: Create class AlwaysTrueRule<T> implements Rule<T>
+        // - always returns true
+
+        // TODO D5: Write a static method allPass(a, b, c, rule)
+        // - returns true only if ALL three values pass the rule
+        //
+        // Signature hint:
+        // static <T> boolean allPass(T a, T b, T c, Rule<T> rule)
+
+        // --- Tests for Part D ---
+        // TODO D6: Uncomment after finishing D1-D5
         /*
-        Repository<String> notes = new InMemoryRepository<>();
-        notes.add("interfaces");
-        notes.add("generics");
-        notes.add("coffee");
+        Rule<String> nonEmpty = new NonEmptyStringRule();
+        System.out.println(allPass("Ada", "Grace", "Katherine", nonEmpty)); // expect true
+        System.out.println(allPass("Ada", "   ", "Katherine", nonEmpty));   // expect false
 
-        System.out.println(notes.size());     // expect 3
-        System.out.println(notes.get(0));     // expect interfaces
-        System.out.println(notes.get(99));    // expect null
+        Rule<Integer> even = new EvenIntegerRule();
+        System.out.println(allPass(2, 4, 6, even)); // expect true
+        System.out.println(allPass(2, 3, 6, even)); // expect false
 
-        Repository<Integer> levels = new InMemoryRepository<>();
-        levels.add(1);
-        levels.add(2);
-        levels.add(3);
-
-        System.out.println(levels.get(2));    // expect 3
+        Rule<Double> always = new AlwaysTrueRule<>();
+        System.out.println(allPass(1.0, 2.5, 999.9, always)); // expect true
         */
 
         // ============================================================
-        // PART E (Mini-Challenge): Connect interfaces together
-        // (Goal: a Transformer<IN, OUT> + applyAll method)
+        // PART E (Mini-Challenge): Compose generic interfaces
+        // (Goal: build ComposedTransformer<IN, MID, OUT>)
         // ============================================================
 
-        // TODO E1: Create interface Transformer<IN, OUT>:
-        // - OUT transform(IN input);
-
-        // TODO E2: Create class StringLengthTransformer implements Transformer<String, Integer>
-        // - "robot" -> 5
-
-        // TODO E3: Create class AddPrefixTransformer implements Transformer<String, String>
-        // - constructor takes prefix
-        // - transform("x") -> prefix + "x"
-
-        // TODO E4: Write a static method applyAll(inputs, transformer)
-        // - inputs: ArrayList<IN>
-        // - transformer: Transformer<IN, OUT>
-        // - returns ArrayList<OUT> with transformed results
+        // TODO E1: Create class ComposedTransformer<IN, MID, OUT>
+        // that implements Transformer<IN, OUT>
         //
-        // Signature hint:
-        // static <IN, OUT> ArrayList<OUT> applyAll(ArrayList<IN> inputs, Transformer<IN, OUT> transformer)
+        // It should have:
+        // - private final Transformer<IN, MID> first;
+        // - private final Transformer<MID, OUT> second;
+        //
+        // Constructor:
+        // - takes (first, second)
+        //
+        // transform(input):
+        // - MID mid = first.transform(input);
+        // - return second.transform(mid);
 
-        // TODO E5: Test E4 with BOTH transformers
-
-        // TODO E6: Uncomment after finishing E1-E5
+        // --- Tests for Part E ---
+        // TODO E2: Uncomment after finishing E1
         /*
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Ada");
-        names.add("Grace");
-        names.add("Katherine");
+        Transformer<String, String> vip = new AddPrefixTransformer("VIP-");
+        Transformer<String, Integer> len = new StringLengthTransformer();
 
-        ArrayList<Integer> lengths = applyAll(names, new StringLengthTransformer());
-        System.out.println(lengths); // expect [3, 5, 9]
+        Transformer<String, Integer> vipThenLen = new ComposedTransformer<>(vip, len);
+        System.out.println(vipThenLen.transform("Ada")); // "VIP-Ada" length is 7 -> expect 7
 
-        ArrayList<String> tagged = applyAll(names, new AddPrefixTransformer("VIP-"));
-        System.out.println(tagged); // expect [VIP-Ada, VIP-Grace, VIP-Katherine]
+        Transformer<Integer, String> i2s = new IntToStringTransformer();
+        Transformer<String, String> hash = new AddPrefixTransformer("#");
+
+        Transformer<Integer, String> intThenHash = new ComposedTransformer<>(i2s, hash);
+        System.out.println(intThenHash.transform(42)); // expect #42
         */
 
         System.out.println("\n=== DONE (when everything above is passing) ===\n");
     }
 
-    // TODO C1: Put printAll(...) here
+    // TODO C1: Put applyOnce(...) here
 
-    // TODO E4: Put applyAll(...) here
+    // TODO C2: Put applyTwice(...) here
+
+    // TODO D5: Put allPass(...) here
 }
 
 
@@ -229,15 +216,15 @@ public class U1B02Act {
 
 
 // ============================================================
-// TODO B1-B2: Put KeyValueStore<K,V> and SimpleKeyValueStore<K,V> here
+// TODO B1-B4: Put Transformer<IN, OUT> + transformer classes here
 // ============================================================
 
 
 // ============================================================
-// TODO D1-D2: Put Repository<T> and InMemoryRepository<T> here
+// TODO D1-D4: Put Rule<T> + rule classes here
 // ============================================================
 
 
 // ============================================================
-// TODO E1-E3: Put Transformer<IN,OUT> and transformer classes here
+// TODO E1: Put ComposedTransformer<IN, MID, OUT> here
 // ============================================================
