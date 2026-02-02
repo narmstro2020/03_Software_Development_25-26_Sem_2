@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="listGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#c73e54"/>
+    </linearGradient>
+    <linearGradient id="arrayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecca3"/>
+      <stop offset="100%" style="stop-color:#3db389"/>
+    </linearGradient>
+    <linearGradient id="benefitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffc107"/>
+      <stop offset="100%" style="stop-color:#e5ad06"/>
+    </linearGradient>
+    <linearGradient id="codeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7b68ee"/>
+      <stop offset="100%" style="stop-color:#6a5acd"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#0f0f1a"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a2e" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="900" fill="url(#grid)" opacity="0.5"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="100" fill="url(#headerGrad)"/>
+  <text x="600" y="60" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#e94560" text-anchor="middle">Java Collections: Lists</text>
+  <text x="600" y="88" font-family="Consolas, monospace" font-size="18" fill="#8892b0" text-anchor="middle">Dynamic, Flexible Data Storage</text>
+  
+  <!-- Central List Concept -->
+  <g transform="translate(600, 260)">
+    <circle cx="0" cy="0" r="100" fill="url(#listGrad)" filter="url(#shadow)"/>
+    <text x="0" y="-15" font-family="Georgia, serif" font-size="28" fill="white" text-anchor="middle" font-weight="bold">LIST</text>
+    <text x="0" y="15" font-family="Consolas, monospace" font-size="14" fill="#ffd6e0" text-anchor="middle">"Ordered</text>
+    <text x="0" y="35" font-family="Consolas, monospace" font-size="14" fill="#ffd6e0" text-anchor="middle">Collection"</text>
+  </g>
+  
+  <!-- Array Comparison (Left) -->
+  <g transform="translate(200, 200)">
+    <rect x="-140" y="-60" width="280" height="120" rx="15" fill="url(#arrayGrad)" filter="url(#shadow)"/>
+    <text x="0" y="-25" font-family="Georgia, serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">Arrays</text>
+    <text x="0" y="5" font-family="Consolas, monospace" font-size="14" fill="#d4f5e9" text-anchor="middle">Fixed size at creation</text>
+    <text x="0" y="25" font-family="Consolas, monospace" font-size="14" fill="#d4f5e9" text-anchor="middle">int[] nums = new int[5];</text>
+    <!-- Arrow to List -->
+    <line x1="145" y1="0" x2="220" y2="30" stroke="#4ecca3" stroke-width="3"/>
+  </g>
+  
+  <!-- Dynamic Nature (Right) -->
+  <g transform="translate(1000, 200)">
+    <rect x="-140" y="-60" width="280" height="120" rx="15" fill="url(#benefitGrad)" filter="url(#shadow)"/>
+    <text x="0" y="-25" font-family="Georgia, serif" font-size="22" fill="#1a1a2e" text-anchor="middle" font-weight="bold">Lists</text>
+    <text x="0" y="5" font-family="Consolas, monospace" font-size="14" fill="#5c4a00" text-anchor="middle">Grows &amp; shrinks as needed</text>
+    <text x="0" y="25" font-family="Consolas, monospace" font-size="14" fill="#5c4a00" text-anchor="middle">List&lt;Integer&gt; nums = ...</text>
+    <!-- Arrow to List -->
+    <line x1="-145" y1="0" x2="-220" y2="30" stroke="#ffc107" stroke-width="3"/>
+  </g>
+  
+  <!-- Visual: Array vs List -->
+  <g transform="translate(100, 420)">
+    <rect x="0" y="0" width="480" height="180" rx="15" fill="#1a1a2e" stroke="#4ecca3" stroke-width="2" filter="url(#shadow)"/>
+    <text x="240" y="35" font-family="Georgia, serif" font-size="20" fill="#4ecca3" text-anchor="middle" font-weight="bold">Array: Fixed Size</text>
+    
+    <!-- Array boxes -->
+    <g transform="translate(40, 60)">
+      <rect x="0" y="0" width="70" height="50" fill="#2d2d44" stroke="#4ecca3" stroke-width="2"/>
+      <text x="35" y="32" font-family="Consolas, monospace" font-size="18" fill="#4ecca3" text-anchor="middle">10</text>
+      <text x="35" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[0]</text>
+      
+      <rect x="80" y="0" width="70" height="50" fill="#2d2d44" stroke="#4ecca3" stroke-width="2"/>
+      <text x="115" y="32" font-family="Consolas, monospace" font-size="18" fill="#4ecca3" text-anchor="middle">20</text>
+      <text x="115" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[1]</text>
+      
+      <rect x="160" y="0" width="70" height="50" fill="#2d2d44" stroke="#4ecca3" stroke-width="2"/>
+      <text x="195" y="32" font-family="Consolas, monospace" font-size="18" fill="#4ecca3" text-anchor="middle">30</text>
+      <text x="195" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[2]</text>
+      
+      <rect x="240" y="0" width="70" height="50" fill="#2d2d44" stroke="#e94560" stroke-width="2" stroke-dasharray="5,5"/>
+      <text x="275" y="32" font-family="Georgia, serif" font-size="14" fill="#e94560" text-anchor="middle">✗</text>
+      <text x="275" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[3]</text>
+      
+      <rect x="320" y="0" width="70" height="50" fill="#2d2d44" stroke="#e94560" stroke-width="2" stroke-dasharray="5,5"/>
+      <text x="355" y="32" font-family="Georgia, serif" font-size="14" fill="#e94560" text-anchor="middle">✗</text>
+      <text x="355" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[4]</text>
+    </g>
+    
+    <text x="240" y="160" font-family="Georgia, serif" font-size="14" fill="#e94560" text-anchor="middle">Can't add more elements!</text>
+  </g>
+  
+  <!-- List Visual -->
+  <g transform="translate(620, 420)">
+    <rect x="0" y="0" width="480" height="180" rx="15" fill="#1a1a2e" stroke="#ffc107" stroke-width="2" filter="url(#shadow)"/>
+    <text x="240" y="35" font-family="Georgia, serif" font-size="20" fill="#ffc107" text-anchor="middle" font-weight="bold">List: Dynamic Size</text>
+    
+    <!-- List boxes with add capability -->
+    <g transform="translate(40, 60)">
+      <rect x="0" y="0" width="70" height="50" fill="#2d2d44" stroke="#ffc107" stroke-width="2"/>
+      <text x="35" y="32" font-family="Consolas, monospace" font-size="18" fill="#ffc107" text-anchor="middle">10</text>
+      <text x="35" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[0]</text>
+      
+      <rect x="80" y="0" width="70" height="50" fill="#2d2d44" stroke="#ffc107" stroke-width="2"/>
+      <text x="115" y="32" font-family="Consolas, monospace" font-size="18" fill="#ffc107" text-anchor="middle">20</text>
+      <text x="115" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[1]</text>
+      
+      <rect x="160" y="0" width="70" height="50" fill="#2d2d44" stroke="#ffc107" stroke-width="2"/>
+      <text x="195" y="32" font-family="Consolas, monospace" font-size="18" fill="#ffc107" text-anchor="middle">30</text>
+      <text x="195" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[2]</text>
+      
+      <rect x="240" y="0" width="70" height="50" fill="#4ecca3" stroke="#4ecca3" stroke-width="2"/>
+      <text x="275" y="32" font-family="Consolas, monospace" font-size="18" fill="#1a1a2e" text-anchor="middle">40</text>
+      <text x="275" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[3]</text>
+      
+      <rect x="320" y="0" width="70" height="50" fill="#4ecca3" stroke="#4ecca3" stroke-width="2"/>
+      <text x="355" y="32" font-family="Consolas, monospace" font-size="18" fill="#1a1a2e" text-anchor="middle">50</text>
+      <text x="355" y="65" font-family="Consolas, monospace" font-size="12" fill="#8892b0" text-anchor="middle">[4]</text>
+      
+      <!-- Plus sign for more -->
+      <text x="415" y="32" font-family="Georgia, serif" font-size="24" fill="#4ecca3" text-anchor="middle">+ ...</text>
+    </g>
+    
+    <text x="240" y="160" font-family="Georgia, serif" font-size="14" fill="#4ecca3" text-anchor="middle">Add as many as you need!</text>
+  </g>
+  
+  <!-- Key Concept Box -->
+  <g transform="translate(100, 630)">
+    <rect x="0" y="0" width="480" height="230" rx="15" fill="#1a1a2e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+    <text x="240" y="40" font-family="Georgia, serif" font-size="24" fill="#e94560" text-anchor="middle" font-weight="bold">The Collections Framework</text>
+    <line x1="40" y1="55" x2="440" y2="55" stroke="#e94560" stroke-width="1" opacity="0.5"/>
+    
+    <text x="30" y="90" font-family="Consolas, monospace" font-size="16" fill="#8892b0">•</text>
+    <text x="55" y="90" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">Part of java.util package</text>
+    
+    <text x="30" y="125" font-family="Consolas, monospace" font-size="16" fill="#8892b0">•</text>
+    <text x="55" y="125" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">List is an interface (contract)</text>
+    
+    <text x="30" y="160" font-family="Consolas, monospace" font-size="16" fill="#8892b0">•</text>
+    <text x="55" y="160" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">ArrayList is the most common class</text>
+    
+    <text x="30" y="195" font-family="Consolas, monospace" font-size="16" fill="#8892b0">•</text>
+    <text x="55" y="195" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">Uses generics: List&lt;Type&gt;</text>
+  </g>
+  
+  <!-- Why Lists Matter Box -->
+  <g transform="translate(620, 630)">
+    <rect x="0" y="0" width="480" height="230" rx="15" fill="#1a1a2e" stroke="#4ecca3" stroke-width="2" filter="url(#shadow)"/>
+    <text x="240" y="40" font-family="Georgia, serif" font-size="24" fill="#4ecca3" text-anchor="middle" font-weight="bold">Why Use Lists?</text>
+    <line x1="40" y1="55" x2="440" y2="55" stroke="#4ecca3" stroke-width="1" opacity="0.5"/>
+    
+    <circle cx="45" cy="90" r="8" fill="#4ecca3"/>
+    <text x="65" y="95" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">Dynamic sizing - no need to predict size</text>
+    
+    <circle cx="45" cy="130" r="8" fill="#4ecca3"/>
+    <text x="65" y="135" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">Built-in methods (add, remove, search)</text>
+    
+    <circle cx="45" cy="170" r="8" fill="#4ecca3"/>
+    <text x="65" y="175" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">Easy iteration with for-each loops</text>
+    
+    <circle cx="45" cy="210" r="8" fill="#4ecca3"/>
+    <text x="65" y="215" font-family="Georgia, serif" font-size="16" fill="#ccd6f6">Type safety with generics</text>
+  </g>
+</svg>

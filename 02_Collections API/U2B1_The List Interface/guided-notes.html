@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Lists - Guided Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #ccd6f6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4ecca3;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8892b0;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #2d2d44;
+        }
+
+        .section h2 {
+            color: #e94560;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h2::before {
+            content: "▸";
+            color: #4ecca3;
+        }
+
+        .diagram-container {
+            background: #0f0f1a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .diagram-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .code-snippet {
+            background: #0f0f1a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4ecca3;
+            overflow-x: auto;
+        }
+
+        .code-snippet-header {
+            color: #4ecca3;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        pre {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ccd6f6;
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        /* Syntax highlighting */
+        .kw { color: #c792ea; }        /* keywords */
+        .type { color: #ffcb6b; }      /* types */
+        .fn { color: #82aaff; }        /* functions/methods */
+        .str { color: #c3e88d; }       /* strings */
+        .num { color: #f78c6c; }       /* numbers */
+        .cm { color: #8892b0; }        /* comments */
+        .op { color: #89ddff; }        /* operators */
+        .var { color: #82aaff; }       /* variables */
+
+        .note-box {
+            background: #2d2d44;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .note-box.tip {
+            border-left-color: #4ecca3;
+        }
+
+        .note-box.warning {
+            border-left-color: #e94560;
+        }
+
+        .note-box h4 {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-box.tip h4 {
+            color: #4ecca3;
+        }
+
+        .note-box.warning h4 {
+            color: #e94560;
+        }
+
+        .try-it {
+            background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+            border: 2px solid #7b68ee;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .try-it h3 {
+            color: #7b68ee;
+            margin-bottom: 1rem;
+        }
+
+        .fill-in {
+            background: #0f0f1a;
+            border: 2px dashed #4ecca3;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0;
+            min-height: 2.5rem;
+            font-family: 'Consolas', monospace;
+            color: #4ecca3;
+        }
+
+        .fill-in::before {
+            content: "// Your code here";
+            color: #8892b0;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #2d2d44;
+        }
+
+        th {
+            background: #2d2d44;
+            color: #4ecca3;
+        }
+
+        td code {
+            background: #2d2d44;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #82aaff;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .comparison-card {
+            background: #2d2d44;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .comparison-card.good {
+            border: 2px solid #4ecca3;
+        }
+
+        .comparison-card.bad {
+            border: 2px solid #e94560;
+        }
+
+        .comparison-card h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-card.good h4 {
+            color: #4ecca3;
+        }
+
+        .comparison-card.bad h4 {
+            color: #e94560;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            color: #8892b0;
+            border-top: 1px solid #2d2d44;
+        }
+
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>☕ Java Lists</h1>
+    <p class="subtitle">Dynamic Collections for Modern Java Development</p>
+
+    <!-- Section 1: Overview -->
+    <section class="section">
+        <h2>What is a List?</h2>
+        <div class="diagram-container">
+            <img src="01-list-overview.svg" alt="List Overview Diagram">
+        </div>
+        <p>A <strong>List</strong> is an ordered collection that can grow and shrink dynamically. Unlike arrays, you don't need to know the size ahead of time!</p>
+        
+        <div class="note-box tip">
+            <h4>💡 Key Insight</h4>
+            <p>Think of a List like a smart array that manages its own size. When you need more space, it automatically grows!</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Creating Lists -->
+    <section class="section">
+        <h2>Creating Lists</h2>
+        <div class="diagram-container">
+            <img src="02-list-syntax.svg" alt="List Syntax Diagram">
+        </div>
+        
+        <div class="code-snippet">
+            <div class="code-snippet-header">📁 Required Imports</div>
+<pre><code><span class="kw">import</span> java.util.List;
+<span class="kw">import</span> java.util.ArrayList;</code></pre>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Creating an ArrayList</div>
+<pre><code><span class="cm">// Recommended: Declare as List, create as ArrayList</span>
+<span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">names</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();
+
+<span class="cm">// With different types</span>
+<span class="type">List</span><span class="op">&lt;</span><span class="type">Integer</span><span class="op">&gt;</span> <span class="var">scores</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();
+<span class="type">List</span><span class="op">&lt;</span><span class="type">Double</span><span class="op">&gt;</span> <span class="var">prices</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();
+<span class="type">List</span><span class="op">&lt;</span><span class="type">Boolean</span><span class="op">&gt;</span> <span class="var">flags</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();</code></pre>
+        </div>
+
+        <div class="note-box warning">
+            <h4>⚠️ Wrapper Types Required</h4>
+            <p>Lists can only hold objects, not primitives! Use <code>Integer</code> instead of <code>int</code>, <code>Double</code> instead of <code>double</code>, etc.</p>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Creating Immutable Lists (Java 9+)</div>
+<pre><code><span class="cm">// Create with initial values - cannot be modified!</span>
+<span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">colors</span> <span class="op">=</span> <span class="type">List</span>.<span class="fn">of</span>(<span class="str">"red"</span>, <span class="str">"green"</span>, <span class="str">"blue"</span>);
+
+<span class="cm">// colors.add("yellow"); // This would throw an exception!</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Section 3: Common Methods -->
+    <section class="section">
+        <h2>Common List Methods</h2>
+        <div class="diagram-container">
+            <img src="03-common-methods.svg" alt="Common Methods Diagram">
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Adding Elements</div>
+<pre><code><span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">fruits</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();
+
+<span class="var">fruits</span>.<span class="fn">add</span>(<span class="str">"Apple"</span>);      <span class="cm">// [Apple]</span>
+<span class="var">fruits</span>.<span class="fn">add</span>(<span class="str">"Banana"</span>);     <span class="cm">// [Apple, Banana]</span>
+<span class="var">fruits</span>.<span class="fn">add</span>(<span class="num">0</span>, <span class="str">"Mango"</span>);  <span class="cm">// [Mango, Apple, Banana] - insert at index</span></code></pre>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Accessing Elements</div>
+<pre><code><span class="type">String</span> <span class="var">first</span> <span class="op">=</span> <span class="var">fruits</span>.<span class="fn">get</span>(<span class="num">0</span>);     <span class="cm">// "Mango"</span>
+<span class="kw">int</span> <span class="var">count</span> <span class="op">=</span> <span class="var">fruits</span>.<span class="fn">size</span>();        <span class="cm">// 3</span>
+<span class="kw">boolean</span> <span class="var">empty</span> <span class="op">=</span> <span class="var">fruits</span>.<span class="fn">isEmpty</span>(); <span class="cm">// false</span></code></pre>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Modifying and Removing</div>
+<pre><code><span class="var">fruits</span>.<span class="fn">set</span>(<span class="num">1</span>, <span class="str">"Orange"</span>);  <span class="cm">// [Mango, Orange, Banana] - replace at index</span>
+<span class="var">fruits</span>.<span class="fn">remove</span>(<span class="num">0</span>);         <span class="cm">// [Orange, Banana] - remove by index</span>
+<span class="var">fruits</span>.<span class="fn">remove</span>(<span class="str">"Banana"</span>); <span class="cm">// [Orange] - remove by object</span>
+<span class="var">fruits</span>.<span class="fn">clear</span>();           <span class="cm">// [] - remove all</span></code></pre>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Searching</div>
+<pre><code><span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">items</span> <span class="op">=</span> <span class="type">List</span>.<span class="fn">of</span>(<span class="str">"A"</span>, <span class="str">"B"</span>, <span class="str">"C"</span>, <span class="str">"B"</span>);
+
+<span class="kw">boolean</span> <span class="var">hasB</span> <span class="op">=</span> <span class="var">items</span>.<span class="fn">contains</span>(<span class="str">"B"</span>);    <span class="cm">// true</span>
+<span class="kw">int</span> <span class="var">firstB</span> <span class="op">=</span> <span class="var">items</span>.<span class="fn">indexOf</span>(<span class="str">"B"</span>);      <span class="cm">// 1</span>
+<span class="kw">int</span> <span class="var">lastB</span> <span class="op">=</span> <span class="var">items</span>.<span class="fn">lastIndexOf</span>(<span class="str">"B"</span>);  <span class="cm">// 3</span>
+<span class="kw">int</span> <span class="var">notFound</span> <span class="op">=</span> <span class="var">items</span>.<span class="fn">indexOf</span>(<span class="str">"Z"</span>);  <span class="cm">// -1 (not found)</span></code></pre>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                    <th>Returns</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>add(elem)</code></td>
+                    <td>Add to end of list</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td><code>add(index, elem)</code></td>
+                    <td>Insert at position</td>
+                    <td>void</td>
+                </tr>
+                <tr>
+                    <td><code>get(index)</code></td>
+                    <td>Get element at index</td>
+                    <td>Element</td>
+                </tr>
+                <tr>
+                    <td><code>set(index, elem)</code></td>
+                    <td>Replace element</td>
+                    <td>Old element</td>
+                </tr>
+                <tr>
+                    <td><code>remove(index)</code></td>
+                    <td>Remove by index</td>
+                    <td>Removed element</td>
+                </tr>
+                <tr>
+                    <td><code>remove(object)</code></td>
+                    <td>Remove first match</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td><code>size()</code></td>
+                    <td>Get count</td>
+                    <td>int</td>
+                </tr>
+                <tr>
+                    <td><code>isEmpty()</code></td>
+                    <td>Check if empty</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td><code>contains(obj)</code></td>
+                    <td>Check if present</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td><code>indexOf(obj)</code></td>
+                    <td>Find first index</td>
+                    <td>int (-1 if not found)</td>
+                </tr>
+                <tr>
+                    <td><code>clear()</code></td>
+                    <td>Remove all elements</td>
+                    <td>void</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section 4: Iteration -->
+    <section class="section">
+        <h2>Iterating Through Lists</h2>
+        <div class="diagram-container">
+            <img src="04-iteration.svg" alt="Iteration Patterns Diagram">
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Method 1: Traditional For Loop (when you need the index)</div>
+<pre><code><span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">names</span> <span class="op">=</span> <span class="type">List</span>.<span class="fn">of</span>(<span class="str">"Alice"</span>, <span class="str">"Bob"</span>, <span class="str">"Carol"</span>);
+
+<span class="kw">for</span> (<span class="kw">int</span> <span class="var">i</span> <span class="op">=</span> <span class="num">0</span>; <span class="var">i</span> <span class="op">&lt;</span> <span class="var">names</span>.<span class="fn">size</span>(); <span class="var">i</span><span class="op">++</span>) {
+    <span class="type">System</span>.out.<span class="fn">println</span>(<span class="var">i</span> <span class="op">+</span> <span class="str">": "</span> <span class="op">+</span> <span class="var">names</span>.<span class="fn">get</span>(<span class="var">i</span>));
+}
+<span class="cm">// Output: 0: Alice, 1: Bob, 2: Carol</span></code></pre>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Method 2: Enhanced For Loop ⭐ (most common)</div>
+<pre><code><span class="kw">for</span> (<span class="type">String</span> <span class="var">name</span> : <span class="var">names</span>) {
+    <span class="type">System</span>.out.<span class="fn">println</span>(<span class="var">name</span>);
+}
+<span class="cm">// Output: Alice, Bob, Carol</span></code></pre>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Method 3: Iterator (safe for removal)</div>
+<pre><code><span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">mutableList</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>(<span class="type">List</span>.<span class="fn">of</span>(<span class="str">"A"</span>, <span class="str">""</span>, <span class="str">"B"</span>, <span class="str">""</span>));
+
+<span class="type">Iterator</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">iter</span> <span class="op">=</span> <span class="var">mutableList</span>.<span class="fn">iterator</span>();
+<span class="kw">while</span> (<span class="var">iter</span>.<span class="fn">hasNext</span>()) {
+    <span class="type">String</span> <span class="var">item</span> <span class="op">=</span> <span class="var">iter</span>.<span class="fn">next</span>();
+    <span class="kw">if</span> (<span class="var">item</span>.<span class="fn">isEmpty</span>()) {
+        <span class="var">iter</span>.<span class="fn">remove</span>();  <span class="cm">// Safe to remove!</span>
+    }
+}
+<span class="cm">// mutableList is now [A, B]</span></code></pre>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Method 4: forEach with Lambda (Java 8+)</div>
+<pre><code><span class="var">names</span>.<span class="fn">forEach</span>(<span class="var">name</span> <span class="op">-&gt;</span> <span class="type">System</span>.out.<span class="fn">println</span>(<span class="var">name</span>));
+
+<span class="cm">// Or even shorter with method reference:</span>
+<span class="var">names</span>.<span class="fn">forEach</span>(<span class="type">System</span>.out::<span class="fn">println</span>);</code></pre>
+        </div>
+
+        <div class="note-box warning">
+            <h4>⚠️ Don't Modify While Iterating!</h4>
+            <p>Using <code>list.remove()</code> inside a for-each loop causes <code>ConcurrentModificationException</code>! Use an Iterator instead.</p>
+        </div>
+    </section>
+
+    <!-- Section 5: ArrayList vs LinkedList -->
+    <section class="section">
+        <h2>ArrayList vs LinkedList</h2>
+        <div class="diagram-container">
+            <img src="05-arraylist-vs-linkedlist.svg" alt="ArrayList vs LinkedList Comparison">
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-card good">
+                <h4>✓ Use ArrayList (99% of cases)</h4>
+                <ul>
+                    <li>Fast random access O(1)</li>
+                    <li>Better memory efficiency</li>
+                    <li>Better CPU cache performance</li>
+                </ul>
+            </div>
+            <div class="comparison-card bad">
+                <h4>Use LinkedList only if...</h4>
+                <ul>
+                    <li>Frequent add/remove at beginning</li>
+                    <li>Need Queue/Deque operations</li>
+                    <li>Very large lists with lots of insertions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Both implement List - same interface!</div>
+<pre><code><span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">arrayList</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();
+<span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">linkedList</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">LinkedList</span><span class="op">&lt;&gt;</span>();
+
+<span class="cm">// Same methods work on both!</span>
+<span class="var">arrayList</span>.<span class="fn">add</span>(<span class="str">"Hello"</span>);
+<span class="var">linkedList</span>.<span class="fn">add</span>(<span class="str">"Hello"</span>);</code></pre>
+        </div>
+    </section>
+
+    <!-- Section 6: Reference Types in Lists -->
+    <section class="section">
+        <h2>Lists Store References, Not Copies</h2>
+        <div class="diagram-container">
+            <img src="06-reference-types.svg" alt="Reference Types in Lists Diagram">
+        </div>
+
+        <div class="note-box tip">
+            <h4>💡 Key Concept</h4>
+            <p>When you store an object in a List, the List holds a <strong>reference</strong> (memory address) to that object—not a copy! This means if you modify the object, the change is visible through the List too.</p>
+        </div>
+
+        <div class="code-snippet">
+            <div class="code-snippet-header">Modifying Objects Through References</div>
+<pre><code><span class="type">List</span><span class="op">&lt;</span><span class="type">Student</span><span class="op">&gt;</span> <span class="var">roster</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();
+<span class="var">roster</span>.<span class="fn">add</span>(<span class="kw">new</span> <span class="type">Student</span>(<span class="str">"Alice"</span>, <span class="num">85</span>));
+
+<span class="cm">// Get a reference to the first student</span>
+<span class="type">Student</span> <span class="var">s</span> <span class="op">=</span> <span class="var">roster</span>.<span class="fn">get</span>(<span class="num">0</span>);
+
+<span class="cm">// Modify through the reference</span>
+<span class="var">s</span>.<span class="fn">setGrade</span>(<span class="num">95</span>);
+
+<span class="cm">// The change is reflected in the list!</span>
+<span class="type">System</span>.out.<span class="fn">println</span>(<span class="var">roster</span>.<span class="fn">get</span>(<span class="num">0</span>).<span class="fn">getGrade</span>()); <span class="cm">// Prints: 95</span></code></pre>
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-card good">
+                <h4>✓ This DOES Modify the List's Object</h4>
+                <pre><code>Student s = roster.get(0);
+s.setGrade(95);  // Changes the object!</code></pre>
+            </div>
+            <div class="comparison-card bad">
+                <h4>✗ This Does NOT Modify the List</h4>
+                <pre><code>Student s = roster.get(0);
+s = new Student(...);  // Only changes s!</code></pre>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Reassigning <code>s</code> doesn't affect the list. Use <code>roster.set(0, s)</code> instead.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Try It Section -->
+    <section class="try-it">
+        <h3>🧪 Try It: Build a Shopping List</h3>
+        <p>Practice using List methods by completing this shopping list manager:</p>
+        
+        <div class="code-snippet">
+<pre><code><span class="kw">import</span> java.util.List;
+<span class="kw">import</span> java.util.ArrayList;
+
+<span class="kw">public class</span> <span class="type">ShoppingList</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[] <span class="var">args</span>) {
+        <span class="cm">// 1. Create an empty ArrayList of Strings</span>
+        <span class="type">List</span><span class="op">&lt;</span><span class="type">String</span><span class="op">&gt;</span> <span class="var">shopping</span> <span class="op">=</span> <span class="kw">new</span> <span class="type">ArrayList</span><span class="op">&lt;&gt;</span>();
+        
+        <span class="cm">// 2. Add these items: "Milk", "Eggs", "Bread"</span>
+        <span class="var">shopping</span>.<span class="fn">add</span>(<span class="str">"Milk"</span>);
+        <span class="var">shopping</span>.<span class="fn">add</span>(<span class="str">"Eggs"</span>);
+        <span class="var">shopping</span>.<span class="fn">add</span>(<span class="str">"Bread"</span>);
+        
+        <span class="cm">// 3. Print the size of the list</span>
+        <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"Items: "</span> <span class="op">+</span> <span class="var">shopping</span>.<span class="fn">size</span>());
+        
+        <span class="cm">// 4. Insert "Butter" at the beginning (index 0)</span>
+        <span class="var">shopping</span>.<span class="fn">add</span>(<span class="num">0</span>, <span class="str">"Butter"</span>);
+        
+        <span class="cm">// 5. Check if "Eggs" is in the list</span>
+        <span class="kw">if</span> (<span class="var">shopping</span>.<span class="fn">contains</span>(<span class="str">"Eggs"</span>)) {
+            <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"Eggs is on the list!"</span>);
+        }
+        
+        <span class="cm">// 6. Print all items using enhanced for loop</span>
+        <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"\nShopping List:"</span>);
+        <span class="kw">for</span> (<span class="type">String</span> <span class="var">item</span> : <span class="var">shopping</span>) {
+            <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"- "</span> <span class="op">+</span> <span class="var">item</span>);
+        }
+        
+        <span class="cm">// 7. Remove "Bread" from the list</span>
+        <span class="var">shopping</span>.<span class="fn">remove</span>(<span class="str">"Bread"</span>);
+        
+        <span class="cm">// 8. Print final list</span>
+        <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"\nFinal list: "</span> <span class="op">+</span> <span class="var">shopping</span>);
+    }
+}</code></pre>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section">
+        <h2>📝 Key Takeaways</h2>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #4ecca3;">✓</span>
+                Lists are dynamic - they grow and shrink automatically
+            </li>
+            <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #4ecca3;">✓</span>
+                Declare as <code>List&lt;Type&gt;</code>, create with <code>new ArrayList&lt;&gt;()</code>
+            </li>
+            <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #4ecca3;">✓</span>
+                Use wrapper types (Integer, Double) not primitives (int, double)
+            </li>
+            <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #4ecca3;">✓</span>
+                <code>add()</code>, <code>get()</code>, <code>size()</code> are your most common methods
+            </li>
+            <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #4ecca3;">✓</span>
+                Enhanced for loop is the cleanest way to iterate
+            </li>
+            <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #4ecca3;">✓</span>
+                Use ArrayList unless you have a specific reason for LinkedList
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Java Lists Guided Notes | Collections Framework</p>
+    </footer>
+</body>
+</html>

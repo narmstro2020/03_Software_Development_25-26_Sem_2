@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="headerGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <filter id="shadow4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#0f0f1a"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid4" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a2e" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="900" fill="url(#grid4)" opacity="0.5"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="100" fill="url(#headerGrad4)"/>
+  <text x="600" y="60" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#7b68ee" text-anchor="middle">Iterating Through Lists</text>
+  <text x="600" y="88" font-family="Consolas, monospace" font-size="18" fill="#8892b0" text-anchor="middle">Four Ways to Loop Through Elements</text>
+  
+  <!-- Method 1: Traditional For Loop -->
+  <g transform="translate(40, 120)">
+    <rect x="0" y="0" width="555" height="230" rx="12" fill="#1a1a2e" stroke="#4ecca3" stroke-width="2" filter="url(#shadow4)"/>
+    <rect x="0" y="0" width="555" height="50" rx="12" fill="#4ecca3"/>
+    <rect x="0" y="30" width="555" height="20" fill="#4ecca3"/>
+    <text x="25" y="32" font-family="Georgia, serif" font-size="20" fill="#1a1a2e" font-weight="bold">1️⃣ Traditional For Loop</text>
+    
+    <text x="25" y="80" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// Use when you need the index</text>
+    
+    <text x="25" y="110" font-family="Consolas, monospace" font-size="15" fill="#c792ea">for</text>
+    <text x="55" y="110" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">(</text>
+    <text x="65" y="110" font-family="Consolas, monospace" font-size="15" fill="#c792ea">int</text>
+    <text x="95" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">i</text>
+    <text x="105" y="110" font-family="Consolas, monospace" font-size="15" fill="#89ddff">=</text>
+    <text x="120" y="110" font-family="Consolas, monospace" font-size="15" fill="#f78c6c">0</text>
+    <text x="130" y="110" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">;</text>
+    <text x="145" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">i</text>
+    <text x="160" y="110" font-family="Consolas, monospace" font-size="15" fill="#89ddff">&lt;</text>
+    <text x="180" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">list</text>
+    <text x="215" y="110" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="225" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">size</text>
+    <text x="260" y="110" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">();</text>
+    <text x="285" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">i</text>
+    <text x="295" y="110" font-family="Consolas, monospace" font-size="15" fill="#89ddff">++</text>
+    <text x="315" y="110" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">) {</text>
+    
+    <text x="45" y="140" font-family="Consolas, monospace" font-size="15" fill="#c792ea">String</text>
+    <text x="105" y="140" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="145" y="140" font-family="Consolas, monospace" font-size="15" fill="#89ddff">=</text>
+    <text x="165" y="140" font-family="Consolas, monospace" font-size="15" fill="#82aaff">list</text>
+    <text x="200" y="140" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="210" y="140" font-family="Consolas, monospace" font-size="15" fill="#82aaff">get</text>
+    <text x="240" y="140" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">(</text>
+    <text x="250" y="140" font-family="Consolas, monospace" font-size="15" fill="#82aaff">i</text>
+    <text x="260" y="140" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">);</text>
+    
+    <text x="45" y="170" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">System.out.println(</text>
+    <text x="220" y="170" font-family="Consolas, monospace" font-size="15" fill="#82aaff">i</text>
+    <text x="235" y="170" font-family="Consolas, monospace" font-size="15" fill="#89ddff">+</text>
+    <text x="255" y="170" font-family="Consolas, monospace" font-size="15" fill="#c3e88d">": "</text>
+    <text x="295" y="170" font-family="Consolas, monospace" font-size="15" fill="#89ddff">+</text>
+    <text x="310" y="170" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="345" y="170" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">);</text>
+    
+    <text x="25" y="200" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">}</text>
+    
+    <rect x="340" y="70" width="200" height="55" rx="8" fill="#2d2d44"/>
+    <text x="350" y="90" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Access to index</text>
+    <text x="350" y="108" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Can modify list</text>
+    <text x="350" y="122" font-family="Georgia, serif" font-size="12" fill="#e94560">✗ More verbose</text>
+  </g>
+  
+  <!-- Method 2: Enhanced For Loop -->
+  <g transform="translate(605, 120)">
+    <rect x="0" y="0" width="555" height="230" rx="12" fill="#1a1a2e" stroke="#e94560" stroke-width="2" filter="url(#shadow4)"/>
+    <rect x="0" y="0" width="555" height="50" rx="12" fill="#e94560"/>
+    <rect x="0" y="30" width="555" height="20" fill="#e94560"/>
+    <text x="25" y="32" font-family="Georgia, serif" font-size="20" fill="white" font-weight="bold">2️⃣ Enhanced For Loop (for-each) ⭐</text>
+    
+    <text x="25" y="80" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// Simplest way - when you don't need the index</text>
+    
+    <text x="25" y="115" font-family="Consolas, monospace" font-size="15" fill="#c792ea">for</text>
+    <text x="55" y="115" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">(</text>
+    <text x="65" y="115" font-family="Consolas, monospace" font-size="15" fill="#c792ea">String</text>
+    <text x="125" y="115" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="165" y="115" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">:</text>
+    <text x="180" y="115" font-family="Consolas, monospace" font-size="15" fill="#82aaff">list</text>
+    <text x="215" y="115" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">) {</text>
+    
+    <text x="45" y="150" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">System.out.println(</text>
+    <text x="220" y="150" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="260" y="150" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">);</text>
+    
+    <text x="25" y="185" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">}</text>
+    
+    <rect x="340" y="70" width="200" height="75" rx="8" fill="#2d2d44"/>
+    <text x="350" y="90" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Clean &amp; readable</text>
+    <text x="350" y="108" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Less error-prone</text>
+    <text x="350" y="126" font-family="Georgia, serif" font-size="12" fill="#e94560">✗ No index access</text>
+    <text x="350" y="142" font-family="Georgia, serif" font-size="12" fill="#e94560">✗ Can't remove safely</text>
+  </g>
+  
+  <!-- Method 3: While with Iterator -->
+  <g transform="translate(40, 370)">
+    <rect x="0" y="0" width="555" height="260" rx="12" fill="#1a1a2e" stroke="#ffc107" stroke-width="2" filter="url(#shadow4)"/>
+    <rect x="0" y="0" width="555" height="50" rx="12" fill="#ffc107"/>
+    <rect x="0" y="30" width="555" height="20" fill="#ffc107"/>
+    <text x="25" y="32" font-family="Georgia, serif" font-size="20" fill="#1a1a2e" font-weight="bold">3️⃣ Iterator Pattern</text>
+    
+    <text x="25" y="80" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// Safe removal while iterating</text>
+    
+    <text x="25" y="110" font-family="Consolas, monospace" font-size="15" fill="#c792ea">Iterator</text>
+    <text x="95" y="110" font-family="Consolas, monospace" font-size="15" fill="#89ddff">&lt;</text>
+    <text x="105" y="110" font-family="Consolas, monospace" font-size="15" fill="#ffcb6b">String</text>
+    <text x="160" y="110" font-family="Consolas, monospace" font-size="15" fill="#89ddff">&gt;</text>
+    <text x="175" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">iter</text>
+    <text x="210" y="110" font-family="Consolas, monospace" font-size="15" fill="#89ddff">=</text>
+    <text x="230" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">list</text>
+    <text x="265" y="110" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="275" y="110" font-family="Consolas, monospace" font-size="15" fill="#82aaff">iterator</text>
+    <text x="345" y="110" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">();</text>
+    
+    <text x="25" y="140" font-family="Consolas, monospace" font-size="15" fill="#c792ea">while</text>
+    <text x="75" y="140" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">(</text>
+    <text x="85" y="140" font-family="Consolas, monospace" font-size="15" fill="#82aaff">iter</text>
+    <text x="120" y="140" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="130" y="140" font-family="Consolas, monospace" font-size="15" fill="#82aaff">hasNext</text>
+    <text x="195" y="140" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">()) {</text>
+    
+    <text x="45" y="170" font-family="Consolas, monospace" font-size="15" fill="#c792ea">String</text>
+    <text x="105" y="170" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="145" y="170" font-family="Consolas, monospace" font-size="15" fill="#89ddff">=</text>
+    <text x="165" y="170" font-family="Consolas, monospace" font-size="15" fill="#82aaff">iter</text>
+    <text x="200" y="170" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="210" y="170" font-family="Consolas, monospace" font-size="15" fill="#82aaff">next</text>
+    <text x="250" y="170" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">();</text>
+    
+    <text x="45" y="200" font-family="Consolas, monospace" font-size="15" fill="#c792ea">if</text>
+    <text x="65" y="200" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">(</text>
+    <text x="75" y="200" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="110" y="200" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="120" y="200" font-family="Consolas, monospace" font-size="15" fill="#82aaff">isEmpty</text>
+    <text x="180" y="200" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">())</text>
+    <text x="210" y="200" font-family="Consolas, monospace" font-size="15" fill="#82aaff">iter</text>
+    <text x="245" y="200" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="255" y="200" font-family="Consolas, monospace" font-size="15" fill="#e94560">remove</text>
+    <text x="315" y="200" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">();</text>
+    <text x="345" y="200" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// Safe!</text>
+    
+    <text x="25" y="230" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">}</text>
+    
+    <rect x="340" y="70" width="200" height="55" rx="8" fill="#2d2d44"/>
+    <text x="350" y="90" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Safe removal</text>
+    <text x="350" y="108" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Works on any Iterable</text>
+    <text x="350" y="122" font-family="Georgia, serif" font-size="12" fill="#e94560">✗ More verbose</text>
+  </g>
+  
+  <!-- Method 4: forEach with Lambda -->
+  <g transform="translate(605, 370)">
+    <rect x="0" y="0" width="555" height="260" rx="12" fill="#1a1a2e" stroke="#7b68ee" stroke-width="2" filter="url(#shadow4)"/>
+    <rect x="0" y="0" width="555" height="50" rx="12" fill="#7b68ee"/>
+    <rect x="0" y="30" width="555" height="20" fill="#7b68ee"/>
+    <text x="25" y="32" font-family="Georgia, serif" font-size="20" fill="white" font-weight="bold">4️⃣ forEach with Lambda (Java 8+)</text>
+    
+    <text x="25" y="80" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// Functional style - very concise</text>
+    
+    <text x="25" y="115" font-family="Consolas, monospace" font-size="15" fill="#82aaff">list</text>
+    <text x="60" y="115" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="70" y="115" font-family="Consolas, monospace" font-size="15" fill="#82aaff">forEach</text>
+    <text x="130" y="115" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">(</text>
+    <text x="140" y="115" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="180" y="115" font-family="Consolas, monospace" font-size="15" fill="#89ddff">-&gt;</text>
+    <text x="205" y="115" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">{</text>
+    
+    <text x="45" y="145" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">System.out.println(</text>
+    <text x="220" y="145" font-family="Consolas, monospace" font-size="15" fill="#82aaff">item</text>
+    <text x="260" y="145" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">);</text>
+    
+    <text x="25" y="175" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">});</text>
+    
+    <text x="25" y="210" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// Or even shorter for simple actions:</text>
+    <text x="25" y="235" font-family="Consolas, monospace" font-size="15" fill="#82aaff">list</text>
+    <text x="60" y="235" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">.</text>
+    <text x="70" y="235" font-family="Consolas, monospace" font-size="15" fill="#82aaff">forEach</text>
+    <text x="130" y="235" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">(</text>
+    <text x="140" y="235" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">System.out::</text>
+    <text x="240" y="235" font-family="Consolas, monospace" font-size="15" fill="#82aaff">println</text>
+    <text x="300" y="235" font-family="Consolas, monospace" font-size="15" fill="#ccd6f6">);</text>
+    
+    <rect x="340" y="70" width="200" height="55" rx="8" fill="#2d2d44"/>
+    <text x="350" y="90" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Very concise</text>
+    <text x="350" y="108" font-family="Georgia, serif" font-size="12" fill="#4ecca3">✓ Functional style</text>
+    <text x="350" y="122" font-family="Georgia, serif" font-size="12" fill="#e94560">✗ Can't break/return</text>
+  </g>
+  
+  <!-- When to Use Which -->
+  <g transform="translate(40, 660)">
+    <rect x="0" y="0" width="1120" height="210" rx="12" fill="#1a1a2e" stroke="#4ecca3" stroke-width="3" filter="url(#shadow4)"/>
+    <text x="560" y="35" font-family="Georgia, serif" font-size="24" fill="#4ecca3" text-anchor="middle" font-weight="bold">🎯 When to Use Which?</text>
+    <line x1="40" y1="50" x2="1080" y2="50" stroke="#4ecca3" stroke-width="1" opacity="0.5"/>
+    
+    <!-- Recommendation boxes -->
+    <rect x="30" y="70" width="250" height="120" rx="8" fill="#2d2d44"/>
+    <text x="155" y="95" font-family="Georgia, serif" font-size="16" fill="#e94560" text-anchor="middle" font-weight="bold">Need Index?</text>
+    <text x="155" y="120" font-family="Georgia, serif" font-size="14" fill="#ccd6f6" text-anchor="middle">Use traditional for loop</text>
+    <text x="155" y="145" font-family="Consolas, monospace" font-size="13" fill="#4ecca3" text-anchor="middle">for (int i = 0; ...)</text>
+    <text x="155" y="175" font-family="Georgia, serif" font-size="12" fill="#8892b0" text-anchor="middle">positions, pair elements</text>
+    
+    <rect x="300" y="70" width="250" height="120" rx="8" fill="#2d2d44"/>
+    <text x="425" y="95" font-family="Georgia, serif" font-size="16" fill="#e94560" text-anchor="middle" font-weight="bold">Just Reading?</text>
+    <text x="425" y="120" font-family="Georgia, serif" font-size="14" fill="#ccd6f6" text-anchor="middle">Use enhanced for loop ⭐</text>
+    <text x="425" y="145" font-family="Consolas, monospace" font-size="13" fill="#4ecca3" text-anchor="middle">for (Type item : list)</text>
+    <text x="425" y="175" font-family="Georgia, serif" font-size="12" fill="#8892b0" text-anchor="middle">most common use case</text>
+    
+    <rect x="570" y="70" width="250" height="120" rx="8" fill="#2d2d44"/>
+    <text x="695" y="95" font-family="Georgia, serif" font-size="16" fill="#e94560" text-anchor="middle" font-weight="bold">Removing Items?</text>
+    <text x="695" y="120" font-family="Georgia, serif" font-size="14" fill="#ccd6f6" text-anchor="middle">Use Iterator</text>
+    <text x="695" y="145" font-family="Consolas, monospace" font-size="13" fill="#4ecca3" text-anchor="middle">iter.remove()</text>
+    <text x="695" y="175" font-family="Georgia, serif" font-size="12" fill="#8892b0" text-anchor="middle">safe modification</text>
+    
+    <rect x="840" y="70" width="250" height="120" rx="8" fill="#2d2d44"/>
+    <text x="965" y="95" font-family="Georgia, serif" font-size="16" fill="#e94560" text-anchor="middle" font-weight="bold">One-liner Action?</text>
+    <text x="965" y="120" font-family="Georgia, serif" font-size="14" fill="#ccd6f6" text-anchor="middle">Use forEach Lambda</text>
+    <text x="965" y="145" font-family="Consolas, monospace" font-size="13" fill="#4ecca3" text-anchor="middle">list.forEach(...)</text>
+    <text x="965" y="175" font-family="Georgia, serif" font-size="12" fill="#8892b0" text-anchor="middle">quick processing</text>
+  </g>
+</svg>

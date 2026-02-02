@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="headerGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <filter id="shadow3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#0f0f1a"/>
+  
+  <!-- Hex pattern -->
+  <pattern id="hexPattern" width="56" height="100" patternUnits="userSpaceOnUse">
+    <path d="M28 0 L56 17 L56 50 L28 67 L0 50 L0 17 Z" fill="none" stroke="#1a1a2e" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="900" fill="url(#hexPattern)" opacity="0.3"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="100" fill="url(#headerGrad3)"/>
+  <text x="600" y="60" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#00d9ff" text-anchor="middle">Common List Methods</text>
+  <text x="600" y="88" font-family="Consolas, monospace" font-size="18" fill="#8892b0" text-anchor="middle">Quick Reference Guide</text>
+  
+  <!-- Adding Elements -->
+  <g transform="translate(40, 120)">
+    <rect x="0" y="0" width="360" height="230" rx="12" fill="#1a1a2e" stroke="#4ecca3" stroke-width="2" filter="url(#shadow3)"/>
+    <rect x="0" y="0" width="360" height="45" rx="12" fill="#4ecca3"/>
+    <rect x="0" y="25" width="360" height="20" fill="#4ecca3"/>
+    <text x="25" y="30" font-family="Georgia, serif" font-size="20" fill="#1a1a2e" font-weight="bold">➕ Adding Elements</text>
+    
+    <text x="20" y="75" font-family="Consolas, monospace" font-size="14" fill="#82aaff">add</text>
+    <text x="55" y="75" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(element)</text>
+    <text x="20" y="95" font-family="Georgia, serif" font-size="13" fill="#8892b0">Add to end of list</text>
+    
+    <line x1="20" y1="110" x2="340" y2="110" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="135" font-family="Consolas, monospace" font-size="14" fill="#82aaff">add</text>
+    <text x="55" y="135" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(index, element)</text>
+    <text x="20" y="155" font-family="Georgia, serif" font-size="13" fill="#8892b0">Insert at specific position</text>
+    
+    <line x1="20" y1="170" x2="340" y2="170" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="195" font-family="Consolas, monospace" font-size="14" fill="#82aaff">addAll</text>
+    <text x="75" y="195" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(collection)</text>
+    <text x="20" y="215" font-family="Georgia, serif" font-size="13" fill="#8892b0">Add all elements from another collection</text>
+  </g>
+  
+  <!-- Accessing Elements -->
+  <g transform="translate(420, 120)">
+    <rect x="0" y="0" width="360" height="230" rx="12" fill="#1a1a2e" stroke="#7b68ee" stroke-width="2" filter="url(#shadow3)"/>
+    <rect x="0" y="0" width="360" height="45" rx="12" fill="#7b68ee"/>
+    <rect x="0" y="25" width="360" height="20" fill="#7b68ee"/>
+    <text x="25" y="30" font-family="Georgia, serif" font-size="20" fill="white" font-weight="bold">👁️ Accessing Elements</text>
+    
+    <text x="20" y="75" font-family="Consolas, monospace" font-size="14" fill="#82aaff">get</text>
+    <text x="50" y="75" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(index)</text>
+    <text x="20" y="95" font-family="Georgia, serif" font-size="13" fill="#8892b0">Get element at index (0-based)</text>
+    
+    <line x1="20" y1="110" x2="340" y2="110" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="135" font-family="Consolas, monospace" font-size="14" fill="#82aaff">size</text>
+    <text x="55" y="135" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">()</text>
+    <text x="20" y="155" font-family="Georgia, serif" font-size="13" fill="#8892b0">Returns number of elements</text>
+    
+    <line x1="20" y1="170" x2="340" y2="170" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="195" font-family="Consolas, monospace" font-size="14" fill="#82aaff">isEmpty</text>
+    <text x="85" y="195" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">()</text>
+    <text x="20" y="215" font-family="Georgia, serif" font-size="13" fill="#8892b0">Returns true if list has no elements</text>
+  </g>
+  
+  <!-- Modifying Elements -->
+  <g transform="translate(800, 120)">
+    <rect x="0" y="0" width="360" height="230" rx="12" fill="#1a1a2e" stroke="#ffc107" stroke-width="2" filter="url(#shadow3)"/>
+    <rect x="0" y="0" width="360" height="45" rx="12" fill="#ffc107"/>
+    <rect x="0" y="25" width="360" height="20" fill="#ffc107"/>
+    <text x="25" y="30" font-family="Georgia, serif" font-size="20" fill="#1a1a2e" font-weight="bold">✏️ Modifying Elements</text>
+    
+    <text x="20" y="75" font-family="Consolas, monospace" font-size="14" fill="#82aaff">set</text>
+    <text x="50" y="75" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(index, element)</text>
+    <text x="20" y="95" font-family="Georgia, serif" font-size="13" fill="#8892b0">Replace element at index</text>
+    
+    <line x1="20" y1="110" x2="340" y2="110" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="135" font-family="Consolas, monospace" font-size="14" fill="#82aaff">remove</text>
+    <text x="80" y="135" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(index)</text>
+    <text x="20" y="155" font-family="Georgia, serif" font-size="13" fill="#8892b0">Remove element at index</text>
+    
+    <line x1="20" y1="170" x2="340" y2="170" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="195" font-family="Consolas, monospace" font-size="14" fill="#82aaff">remove</text>
+    <text x="80" y="195" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(object)</text>
+    <text x="20" y="215" font-family="Georgia, serif" font-size="13" fill="#8892b0">Remove first occurrence of object</text>
+  </g>
+  
+  <!-- Searching -->
+  <g transform="translate(40, 370)">
+    <rect x="0" y="0" width="360" height="230" rx="12" fill="#1a1a2e" stroke="#e94560" stroke-width="2" filter="url(#shadow3)"/>
+    <rect x="0" y="0" width="360" height="45" rx="12" fill="#e94560"/>
+    <rect x="0" y="25" width="360" height="20" fill="#e94560"/>
+    <text x="25" y="30" font-family="Georgia, serif" font-size="20" fill="white" font-weight="bold">🔍 Searching</text>
+    
+    <text x="20" y="75" font-family="Consolas, monospace" font-size="14" fill="#82aaff">contains</text>
+    <text x="95" y="75" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(object)</text>
+    <text x="20" y="95" font-family="Georgia, serif" font-size="13" fill="#8892b0">Returns true if list contains element</text>
+    
+    <line x1="20" y1="110" x2="340" y2="110" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="135" font-family="Consolas, monospace" font-size="14" fill="#82aaff">indexOf</text>
+    <text x="90" y="135" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(object)</text>
+    <text x="20" y="155" font-family="Georgia, serif" font-size="13" fill="#8892b0">Returns index of first occurrence (-1 if not found)</text>
+    
+    <line x1="20" y1="170" x2="340" y2="170" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="195" font-family="Consolas, monospace" font-size="14" fill="#82aaff">lastIndexOf</text>
+    <text x="115" y="195" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(object)</text>
+    <text x="20" y="215" font-family="Georgia, serif" font-size="13" fill="#8892b0">Returns index of last occurrence</text>
+  </g>
+  
+  <!-- Bulk Operations -->
+  <g transform="translate(420, 370)">
+    <rect x="0" y="0" width="360" height="230" rx="12" fill="#1a1a2e" stroke="#00d9ff" stroke-width="2" filter="url(#shadow3)"/>
+    <rect x="0" y="0" width="360" height="45" rx="12" fill="#00d9ff"/>
+    <rect x="0" y="25" width="360" height="20" fill="#00d9ff"/>
+    <text x="25" y="30" font-family="Georgia, serif" font-size="20" fill="#1a1a2e" font-weight="bold">🔄 Bulk Operations</text>
+    
+    <text x="20" y="75" font-family="Consolas, monospace" font-size="14" fill="#82aaff">clear</text>
+    <text x="65" y="75" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">()</text>
+    <text x="20" y="95" font-family="Georgia, serif" font-size="13" fill="#8892b0">Remove all elements</text>
+    
+    <line x1="20" y1="110" x2="340" y2="110" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="135" font-family="Consolas, monospace" font-size="14" fill="#82aaff">removeAll</text>
+    <text x="105" y="135" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(collection)</text>
+    <text x="20" y="155" font-family="Georgia, serif" font-size="13" fill="#8892b0">Remove all matching elements</text>
+    
+    <line x1="20" y1="170" x2="340" y2="170" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="195" font-family="Consolas, monospace" font-size="14" fill="#82aaff">retainAll</text>
+    <text x="100" y="195" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(collection)</text>
+    <text x="20" y="215" font-family="Georgia, serif" font-size="13" fill="#8892b0">Keep only matching elements</text>
+  </g>
+  
+  <!-- Conversion -->
+  <g transform="translate(800, 370)">
+    <rect x="0" y="0" width="360" height="230" rx="12" fill="#1a1a2e" stroke="#ff6b9d" stroke-width="2" filter="url(#shadow3)"/>
+    <rect x="0" y="0" width="360" height="45" rx="12" fill="#ff6b9d"/>
+    <rect x="0" y="25" width="360" height="20" fill="#ff6b9d"/>
+    <text x="25" y="30" font-family="Georgia, serif" font-size="20" fill="white" font-weight="bold">🔀 Conversion</text>
+    
+    <text x="20" y="75" font-family="Consolas, monospace" font-size="14" fill="#82aaff">toArray</text>
+    <text x="85" y="75" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">()</text>
+    <text x="20" y="95" font-family="Georgia, serif" font-size="13" fill="#8892b0">Convert to Object[] array</text>
+    
+    <line x1="20" y1="110" x2="340" y2="110" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="135" font-family="Consolas, monospace" font-size="14" fill="#82aaff">toArray</text>
+    <text x="85" y="135" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(T[] array)</text>
+    <text x="20" y="155" font-family="Georgia, serif" font-size="13" fill="#8892b0">Convert to typed array</text>
+    
+    <line x1="20" y1="170" x2="340" y2="170" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="20" y="195" font-family="Consolas, monospace" font-size="14" fill="#82aaff">subList</text>
+    <text x="85" y="195" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(from, to)</text>
+    <text x="20" y="215" font-family="Georgia, serif" font-size="13" fill="#8892b0">Get view of portion (from inclusive, to exclusive)</text>
+  </g>
+  
+  <!-- Code Example -->
+  <g transform="translate(40, 620)">
+    <rect x="0" y="0" width="740" height="250" rx="12" fill="#1a1a2e" stroke="#4ecca3" stroke-width="2" filter="url(#shadow3)"/>
+    <text x="25" y="35" font-family="Georgia, serif" font-size="18" fill="#4ecca3" font-weight="bold">📝 Example Usage</text>
+    <line x1="20" y1="50" x2="720" y2="50" stroke="#2d2d44" stroke-width="1"/>
+    
+    <text x="25" y="80" font-family="Consolas, monospace" font-size="14" fill="#c792ea">List</text>
+    <text x="60" y="80" font-family="Consolas, monospace" font-size="14" fill="#89ddff">&lt;</text>
+    <text x="70" y="80" font-family="Consolas, monospace" font-size="14" fill="#ffcb6b">String</text>
+    <text x="125" y="80" font-family="Consolas, monospace" font-size="14" fill="#89ddff">&gt;</text>
+    <text x="140" y="80" font-family="Consolas, monospace" font-size="14" fill="#82aaff">fruits</text>
+    <text x="195" y="80" font-family="Consolas, monospace" font-size="14" fill="#89ddff">=</text>
+    <text x="210" y="80" font-family="Consolas, monospace" font-size="14" fill="#c792ea">new</text>
+    <text x="250" y="80" font-family="Consolas, monospace" font-size="14" fill="#c792ea">ArrayList</text>
+    <text x="345" y="80" font-family="Consolas, monospace" font-size="14" fill="#89ddff">&lt;&gt;</text>
+    <text x="370" y="80" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">();</text>
+    
+    <text x="25" y="105" font-family="Consolas, monospace" font-size="14" fill="#82aaff">fruits</text>
+    <text x="75" y="105" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">.</text>
+    <text x="85" y="105" font-family="Consolas, monospace" font-size="14" fill="#82aaff">add</text>
+    <text x="115" y="105" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(</text>
+    <text x="125" y="105" font-family="Consolas, monospace" font-size="14" fill="#c3e88d">"Apple"</text>
+    <text x="195" y="105" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">);</text>
+    <text x="250" y="105" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// [Apple]</text>
+    
+    <text x="25" y="130" font-family="Consolas, monospace" font-size="14" fill="#82aaff">fruits</text>
+    <text x="75" y="130" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">.</text>
+    <text x="85" y="130" font-family="Consolas, monospace" font-size="14" fill="#82aaff">add</text>
+    <text x="115" y="130" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(</text>
+    <text x="125" y="130" font-family="Consolas, monospace" font-size="14" fill="#c3e88d">"Banana"</text>
+    <text x="205" y="130" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">);</text>
+    <text x="250" y="130" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// [Apple, Banana]</text>
+    
+    <text x="25" y="155" font-family="Consolas, monospace" font-size="14" fill="#82aaff">fruits</text>
+    <text x="75" y="155" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">.</text>
+    <text x="85" y="155" font-family="Consolas, monospace" font-size="14" fill="#82aaff">add</text>
+    <text x="115" y="155" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(</text>
+    <text x="125" y="155" font-family="Consolas, monospace" font-size="14" fill="#f78c6c">0</text>
+    <text x="140" y="155" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">,</text>
+    <text x="155" y="155" font-family="Consolas, monospace" font-size="14" fill="#c3e88d">"Mango"</text>
+    <text x="225" y="155" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">);</text>
+    <text x="250" y="155" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// [Mango, Apple, Banana]</text>
+    
+    <text x="25" y="185" font-family="Consolas, monospace" font-size="14" fill="#c792ea">String</text>
+    <text x="80" y="185" font-family="Consolas, monospace" font-size="14" fill="#82aaff">first</text>
+    <text x="125" y="185" font-family="Consolas, monospace" font-size="14" fill="#89ddff">=</text>
+    <text x="140" y="185" font-family="Consolas, monospace" font-size="14" fill="#82aaff">fruits</text>
+    <text x="190" y="185" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">.</text>
+    <text x="200" y="185" font-family="Consolas, monospace" font-size="14" fill="#82aaff">get</text>
+    <text x="230" y="185" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(</text>
+    <text x="240" y="185" font-family="Consolas, monospace" font-size="14" fill="#f78c6c">0</text>
+    <text x="255" y="185" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">);</text>
+    <text x="290" y="185" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// "Mango"</text>
+    
+    <text x="25" y="210" font-family="Consolas, monospace" font-size="14" fill="#c792ea">int</text>
+    <text x="55" y="210" font-family="Consolas, monospace" font-size="14" fill="#82aaff">count</text>
+    <text x="105" y="210" font-family="Consolas, monospace" font-size="14" fill="#89ddff">=</text>
+    <text x="120" y="210" font-family="Consolas, monospace" font-size="14" fill="#82aaff">fruits</text>
+    <text x="170" y="210" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">.</text>
+    <text x="180" y="210" font-family="Consolas, monospace" font-size="14" fill="#82aaff">size</text>
+    <text x="220" y="210" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">();</text>
+    <text x="290" y="210" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// 3</text>
+    
+    <text x="25" y="235" font-family="Consolas, monospace" font-size="14" fill="#82aaff">fruits</text>
+    <text x="75" y="235" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">.</text>
+    <text x="85" y="235" font-family="Consolas, monospace" font-size="14" fill="#82aaff">remove</text>
+    <text x="145" y="235" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">(</text>
+    <text x="155" y="235" font-family="Consolas, monospace" font-size="14" fill="#c3e88d">"Apple"</text>
+    <text x="225" y="235" font-family="Consolas, monospace" font-size="14" fill="#ccd6f6">);</text>
+    <text x="290" y="235" font-family="Consolas, monospace" font-size="14" fill="#8892b0">// [Mango, Banana]</text>
+  </g>
+  
+  <!-- Most Used Callout -->
+  <g transform="translate(800, 620)">
+    <rect x="0" y="0" width="360" height="250" rx="12" fill="#1a1a2e" stroke="#4ecca3" stroke-width="3" filter="url(#shadow3)"/>
+    <text x="180" y="35" font-family="Georgia, serif" font-size="20" fill="#4ecca3" text-anchor="middle" font-weight="bold">⭐ Most Used Methods</text>
+    <line x1="25" y1="50" x2="335" y2="50" stroke="#4ecca3" stroke-width="1" opacity="0.5"/>
+    
+    <rect x="20" y="65" width="320" height="40" rx="8" fill="#2d2d44"/>
+    <text x="35" y="85" font-family="Consolas, monospace" font-size="16" fill="#4ecca3">add(element)</text>
+    <text x="35" y="100" font-family="Georgia, serif" font-size="11" fill="#8892b0">Add to list</text>
+    
+    <rect x="20" y="115" width="320" height="40" rx="8" fill="#2d2d44"/>
+    <text x="35" y="135" font-family="Consolas, monospace" font-size="16" fill="#7b68ee">get(index)</text>
+    <text x="35" y="150" font-family="Georgia, serif" font-size="11" fill="#8892b0">Retrieve element</text>
+    
+    <rect x="20" y="165" width="320" height="40" rx="8" fill="#2d2d44"/>
+    <text x="35" y="185" font-family="Consolas, monospace" font-size="16" fill="#ffc107">size()</text>
+    <text x="35" y="200" font-family="Georgia, serif" font-size="11" fill="#8892b0">Get count</text>
+    
+    <rect x="20" y="215" width="320" height="28" rx="8" fill="#4ecca3" opacity="0.2"/>
+    <text x="180" y="234" font-family="Georgia, serif" font-size="13" fill="#4ecca3" text-anchor="middle">Master these first!</text>
+  </g>
+</svg>
